@@ -67,6 +67,7 @@ const SigninPassword = props => {
         verifyPasswordHandler({user_email: email, user_password: password,device_token:deviceIdentifire,device_identifier:deviceInfo?.deviceId,auth_token:deviceInfo?.appToken,device_type:deviceInfo?.deviceType,device_name:deviceName,device_os:deviceInfo?.deviceOSVersion,app_installed_version:deviceInfo?.appInstallVersion}),
       );
       if (verifyUser?.payload?.response?.success === 1) {
+        // console.log("user login screen ssave==",verifyUser?.payload?.response)
         saveData(verifyUser?.payload?.response);
         props.navigation.navigate('AllEvents');
       } else {

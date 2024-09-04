@@ -3,13 +3,9 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
-  Image,
-  FlatList,
-  Modal,
-  ActivityIndicator,
-  Alert
+  Alert,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import RNPrint from 'react-native-print';
 import MainHeader from '../Components/Headers/MainHeader';
 import {
@@ -19,20 +15,23 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import fontFamily from '../Styles/fontFamily';
 import colors from '../Styles/colors';
+
 const Printbadge = props => {
   const dispatch = useDispatch();
   const getPrintBadgeData = useSelector(state => state.getPrintBadgeState);
-//   console.log('getPrintBadgeData===', getPrintBadgeData?.user?.response);
 
-  const pdfUrl =getPrintBadgeData?.user?.response?.url;
+  const pdfUrl = getPrintBadgeData?.user?.response?.url;
+  console.log("pdfUrl===",pdfUrl);
+
   const handlePrint = async () => {
-    if (!pdfUrl) {
-      Alert.alert('Error', 'No PDF URL available');
-      return;
+    let filePath = pdfUrl;
+
+    if (!filePath) {
+      filePath = "https://www.rd.usda.gov/sites/default/files/pdf-sample_0.pdf";
     }
 
     try {
-      await RNPrint.print({filePath: pdfUrl});
+      await RNPrint.print({filePath});
     } catch (error) {
       console.error('error', error);
       Alert.alert('Error', 'Failed to print PDF');
@@ -73,7 +72,7 @@ const Printbadge = props => {
                 fontSize: hp(2),
                 fontFamily: fontFamily.robotoMedium,
                 fontWeight: '400',
-              }}>Please click the Print button   below to print  your badge</Text>
+              }}>Please click the Print button below to print your badge</Text>
             </View>
             <View style={{flex:0.1}}></View>
           <TouchableOpacity
@@ -88,7 +87,6 @@ const Printbadge = props => {
               borderRadius: hp(1),
               borderColor:colors.lightBlue,
               borderWidth:hp(0.1),
-              // backgroundColor: colors.lightBlue,
             }}>
             <Text
               style={{
@@ -101,49 +99,6 @@ const Printbadge = props => {
             </Text>
           </TouchableOpacity>
         </View>
-
-        {/* <View
-          style={{
-            flex: 0.3,
-            width: hp(40),
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderColor:colors.lightBlue,
-            borderWidth:hp(0.2),
-            marginTop:hp(2.5),
-            paddingHorizontal:hp(2.5)
-          }}>
-             <View style={{flex:0.5,justifyContent:'center',alignItems:'center'}}>
-              <Text style={{
-                color: colors.lightBlue,
-                fontSize: hp(2),
-                fontFamily: fontFamily.robotoMedium,
-                fontWeight: '400',
-              }}>Please click the Print button   below to print  your badge</Text>
-            </View>
-          <TouchableOpacity
-            onPress={handlePrint}
-            style={{
-              height: hp(8),
-              width: hp(30),
-              borderWidth: 1,
-              borderColor: '#cdcdcd',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: hp(1),
-              backgroundColor: colors.lightBlue,
-            }}>
-            <Text
-              style={{
-                color: '#fff',
-                fontSize: hp(3),
-                fontFamily: fontFamily.robotoMedium,
-                fontWeight: '400',
-              }}>
-              Preview
-            </Text>
-          </TouchableOpacity>
-        </View> */}
       </View>
     </View>
   );

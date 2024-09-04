@@ -118,7 +118,9 @@ const SessionProgramm = (props) => {
         {item.speakers.map((speaker, index) => (
           <View key={index}>
             <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => props.navigation.navigate("SpeakerProfile",{
+              item: speaker
+            })}
             style={{
             flex: 1,
             flexDirection: 'row',
@@ -213,7 +215,7 @@ const SessionProgramm = (props) => {
         backgroundColor="transparent"
       />
       {/* bottom steet start */}
-      <BottomSheet 
+      {/* <BottomSheet 
           isVisible={isPoll} 
           style={{
             flex: 1,
@@ -402,7 +404,7 @@ const SessionProgramm = (props) => {
             </TouchableOpacity>
           </View>
           
-        </BottomSheet>
+        </BottomSheet> */}
     
       {/* bottom sheet end */}
       <View style={{flex: 0.35}}>
@@ -687,7 +689,7 @@ const SessionProgramm = (props) => {
           )}
         </ScrollView>
       </View>
-       <View style={{flex: 0.08, backgroundColor: '#fff',justifyContent:'center',alignItems:'center'}}>
+       {/* <View style={{flex: 0.08, backgroundColor: '#fff',justifyContent:'center',alignItems:'center'}}>
         <View
           style={{
             justifyContent: 'center',
@@ -742,7 +744,7 @@ const SessionProgramm = (props) => {
                 <Text style={{color:colors.descBlack,fontSize:hp(1.5),fontWeight:'400',fontStyle:fontFamily.robotoMedium}}>Poll</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };

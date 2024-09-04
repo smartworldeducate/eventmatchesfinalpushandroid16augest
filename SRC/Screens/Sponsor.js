@@ -61,15 +61,14 @@ const Sponsor = props => {
 
   const renderItem = ({item, index}) => {
     return (
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('ExibitoeDetail')}
+      <View
         style={[styles.cardImgWrapper]}>
         <Image
-          source={{uri: item?.image_name}}
+          source={{uri: item?.image_name ? item?.image_name:''}}
           resizeMode="contain"
           style={styles.cardImg}
         />
-      </TouchableOpacity>
+      </View>
     );
   };
 

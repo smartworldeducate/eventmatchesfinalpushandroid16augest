@@ -78,9 +78,9 @@ const AllEvents = props => {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value !== null) {
-        console.log('Data retrieved successfully:', value);
+        console.log('login user Data retrieved successfully:', value);
         const parsedData = JSON.parse(value);
-        console.log("login user id===",parsedData);
+        // console.log("login user id===",parsedData);
         setLoginData(parsedData);
       } 
     } catch (error) {
@@ -93,6 +93,10 @@ const AllEvents = props => {
       removeSaveDataFromAsyncStorage('userSession');
     }, [])
   )
+
+  useEffect(()=>{
+    geLogintData('loginData');
+  },[])
  
   useEffect(() => {
     geLogintData('loginData');

@@ -43,11 +43,7 @@ const CustomDrawer = ({ navigation }) => {
         const parsedData = JSON.parse(value);
         // console.log("login data===",parsedData);
         setData(parsedData);
-        dispatch(getPrintBadgeHandler({
-          user_id: parsedData?.event_user_id,
-          event_id: parsedData?.event_id,
-          admin_id: parsedData?.user_id,
-        }));
+       
         const firstName = parsedData?.first_name || '';
         const lastName = parsedData?.last_name || '';
         
@@ -71,9 +67,14 @@ const CustomDrawer = ({ navigation }) => {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value !== null) {
-        // console.log('Data retrieved successfully:', value);
+        console.log('Data retrieved successfully:', value);
         const parsedData = JSON.parse(value);
         setAdminData(parsedData);
+        dispatch(getPrintBadgeHandler({
+          user_id: parsedData?.event_user_id,
+          event_id: parsedData?.event_id,
+          admin_id: parsedData?.user_id,
+        }));
       } 
     } catch (error) {
       console.error('Error retrieving data:', error);
@@ -88,7 +89,7 @@ const CustomDrawer = ({ navigation }) => {
   }, []);
   
   async function saveData() {
-   console.log("logout")
+  //  console.log("logout")
       await AsyncStorage.removeItem("loginData");
       await AsyncStorage.removeItem("userSession");
       navigation.dispatch(StackActions.replace('SigninScreen'))
@@ -325,7 +326,7 @@ const CustomDrawer = ({ navigation }) => {
             <View style={{zIndex:7,marginTop:hp(-2)}}>
               <View style={{ flexDirection: 'row'}}>
                 <View>
-                <Text style={{marginLeft:hp(3),fontSize:hp(1.5),color:'#fff'}}>{appVersionData?.user?.response?.version >= '1.03' ? appVersionData?.user?.response?.message :'' }</Text>
+                <Text style={{marginLeft:hp(3),fontSize:hp(1.5),color:'#fff'}}>{appVersionData?.user?.response?.version >= '1.04' ? appVersionData?.user?.response?.message :'' }</Text>
                 </View>
               </View>
             </View>

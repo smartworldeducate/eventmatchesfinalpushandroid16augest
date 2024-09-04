@@ -68,8 +68,7 @@ const NextScreen = props => {
                 marginTop: hp(4.5),
                 marginHorizontal: hp(2.5),
               }}>
-              <Text style={styles.text}>Explore Upcoming and Nearby</Text>
-              <Text style={styles.text}>Events</Text>
+              <Text style={styles.text}>Empowering Women, Elevating Business.</Text>
             </View>
             <View
               style={{
@@ -78,12 +77,12 @@ const NextScreen = props => {
                 marginTop: hp(4.5),
                 marginHorizontal: hp(2.5),
               }}>
-              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontWeight:'400',fontFamily:fontFamily.robotoMedium}}>
-                In publishing and graphic design, Lorem is a
+              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontWeight:'400',fontFamily:fontFamily.robotoMedium,textAlign:'center'}}>
+              Empowering Women, Elevating Business.
+Champions women entrepreneurs, driving growth, success, and impactful opportunities.
+
               </Text>
-              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium}}>
-                placeholder text commonly{' '}
-              </Text>
+              
             </View>
           </View>
           <View
@@ -125,8 +124,7 @@ const NextScreen = props => {
                 marginTop: hp(-16),
                 marginHorizontal: hp(2.5),
               }}>
-              <Text style={styles.text}>Web Have Modern Events</Text>
-              <Text style={styles.text}>Calendar Feature </Text>
+              <Text style={styles.text}>Driving Opportunity for Women Entrepreneurs.</Text>
             </View>
             <View
               style={{
@@ -135,12 +133,11 @@ const NextScreen = props => {
                 marginTop: hp(4.5),
                 marginHorizontal: hp(2.5),
               }}>
-              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium}}>
-                In publishing and graphic design, Lorem
+              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium,textAlign:'center'}}>
+              Driving Opportunity for Women Entrepreneurs.
+              Focuses on creating pathways for growth, success, and lasting impact.
               </Text>
-              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium}}>
-                is a placeholder text commonly
-              </Text>
+             
             </View>
           </View>
           <View
@@ -182,8 +179,7 @@ const NextScreen = props => {
                 marginTop: hp(-16),
                 marginHorizontal: hp(2.5),
               }}>
-              <Text style={styles.text}>To Look Up More Events or</Text>
-              <Text style={styles.text}>Activities Nearby By Map</Text>
+              <Text style={styles.text}>Empower. Connect. Succeed.</Text>
             </View>
             <View
               style={{
@@ -192,12 +188,11 @@ const NextScreen = props => {
                 marginTop: hp(4.5),
                 marginHorizontal: hp(2.5),
               }}>
-              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium}}>
-                In publishing and graphic design, Lorem is a
+              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium,textAlign:'center'}}>
+              Empower. Connect. Succeed.
+              Emphasizes empowering women, fostering connections, and driving entrepreneurial success and growth
               </Text>
-              <Text style={{color: '#fff',fontWeight:'400', fontSize: hp(2),fontFamily:fontFamily.robotoMedium}}>
-                placeholder text commonly
-              </Text>
+             
             </View>
           </View>
           <View
@@ -240,6 +235,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: hp(2.5),
     fontWeight: '600',
-    fontFamily:fontFamily.robotoBold
+    fontFamily:fontFamily.robotoBold,
+    textAlign:'center'
   },
 });

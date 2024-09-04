@@ -239,7 +239,7 @@ const Routes = () => {
         <Stack.Screen name="Favroitmeeting" component={Favroitmeeting} />
         <Stack.Screen name="Shortlist" component={Shortlist} />
         <Stack.Screen name="Printbadge" component={Printbadge} />
-        {/* <Stack.Screen name="Exibitornew" component={Exibitornew} /> */}
+        {/* <Stack.Screen name="Testpdf" component={Testpdf} /> */}
         
         
         

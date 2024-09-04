@@ -31,7 +31,7 @@ const SpeakerList = props => {
   const [data, setData] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   // const urlData=speakerData?.user?.response?.events[0];
-  // console.log("speakerd data===",speakerData?.user);
+  // console.log("speakerd data===",speakerData?.user?.response?.events[0]?.speaker_detail);
   async function getData(key) {
     try {
       const value = await AsyncStorage.getItem(key);
@@ -45,7 +45,7 @@ const SpeakerList = props => {
         // {"user_id":parsedData.user_id,"event_id":parsedData.event_id,"type_id":1}
         dispatch(
           speakerHandler({
-            user_id: parsedData.user_id,
+            user_id: parsedData.event_user_id,
             event_id: parsedData.event_id,
             type_id: 1,
           }),

@@ -35,7 +35,7 @@ const Exibitor = props => {
 
         // setData(parsedData);
         // {"user_id":parsedData.user_id,"event_id":parsedData.event_id,"type_id":1}
-        dispatch(speakerHandler({"user_id":parsedData.user_id,"event_id":parsedData.event_id,"type_id":3}));
+        dispatch(speakerHandler({"user_id":parsedData.event_user_id,"event_id":parsedData.event_id,"type_id":3}));
         console.log('here is feedback screen data', parsedData);
         return parsedData;
       } 

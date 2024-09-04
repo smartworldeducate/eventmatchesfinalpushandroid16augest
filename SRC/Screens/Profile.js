@@ -30,7 +30,7 @@ const Profile = props => {
   const dispatch = useDispatch();
   const speakerDetailData=useSelector((state)=>state.speakerDetailState);
   const registerActivityData=useSelector((state)=>state.registerActivityState);
-  console.log("speakerDetaidetail==",speakerDetailData?.user?.response?.detail);
+  // console.log("speakerDetaidetail==",speakerDetailData?.user?.response);
 
   // console.log("speakerDetaidetail==",speakerDetailData?.user?.response?.detail);
   const {item,event_id} = props.route.params;
@@ -203,7 +203,7 @@ const Profile = props => {
   )}
 
   const renderItemSession=({ item })=>{
-    console.log("session profile--",item);
+    // console.log("session profile--",item);
     return(
       <TouchableOpacity activeOpacity={8} onPress={()=>props.navigation.navigate('Session',{item})} style={{ flex: 0.19, borderRadius: hp(3), borderWidth:0.5, borderColor: '#cdcdcd', flexDirection: 'row',marginTop:hp(1.5) }}>
         <View style={{ flex: 0.45, height: hp[(5)] }}>

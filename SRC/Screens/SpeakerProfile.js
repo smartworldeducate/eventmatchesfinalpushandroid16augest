@@ -62,17 +62,17 @@ import {
       getSessionData('userSession');
     }, []);
   
-    const getTabData = (tabName) => {
-      // Fetch data from your detail object based on the tabName
-      return speakerDetailData?.user?.response?.detail?.[tabName];
-    }
-    const handleTabClick = (tabName) => {
-      console.log("activeTab===",tabName);
-      setActiveTab(tabName);
-      // Fetch data for the selected tab
-      const newData = getTabData(tabName); // Implement this function to fetch data based on tabName
-      setTabData(newData);
-    }
+    // const getTabData = (tabName) => {
+    //   // Fetch data from your detail object based on the tabName
+    //   return speakerDetailData?.user?.response?.detail?.[tabName];
+    // }
+    // const handleTabClick = (tabName) => {
+    //   console.log("activeTab===",tabName);
+    //   setActiveTab(tabName);
+    //   // Fetch data for the selected tab
+    //   const newData = getTabData(tabName); // Implement this function to fetch data based on tabName
+    //   setTabData(newData);
+    // }
 
     const openUrlHandler=(item)=>{
       if(item !==''){
@@ -202,8 +202,8 @@ import {
             <RenderHtml
                   contentWidth={400}
                   source={{
-                    html: item
-                      ? '<p>' + speakerDetailData?.user?.response?.events[0]?.speaker_detail + '</p>'
+                    html: item && item
+                      ? '<p>' + item?.speaker_detail + '</p>'
                       : '',
                   }}
                   stylesheet={{color: 'blue'}}
@@ -212,47 +212,7 @@ import {
                 </ScrollView>
         </View>
   
-        <View style={{flex: 0.1, backgroundColor: '#fff'}}>
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
-              marginTop: hp(1),
-            }}>
-            <TouchableOpacity onPress={()=>{}} style={{flex: 0.25}}>
-              {/* <Image
-                style={{width: '100%', height: '100%', paddingTop: hp(2)}}
-                source={{uri: 'icon4'}}
-                resizeMode="contain"
-              /> */}
-            </TouchableOpacity>
-            <TouchableOpacity onPress={ ()=>openUrlHandler(item?.facebook_url)} style={{flex: 0.25}}>
-            {item?.facebook_url &&  <Image
-                style={{width: '100%', height: '100%', paddingTop: hp(2)}}
-                source={{uri: 'icon3'}}
-                resizeMode="contain"
-              />}
-             
-            </TouchableOpacity>
-            <TouchableOpacity onPress={ ()=>{}} style={{flex: 0.25}}>
-            {item?.googleplus_url &&  <Image
-                style={{width: '100%', height: '100%', paddingTop: hp(2)}}
-                source={{uri: 'iconone'}}
-                resizeMode="contain"
-              />} 
-             
-            </TouchableOpacity>
-            <TouchableOpacity onPress={ ()=>openUrlHandler(item?.twitter_url)} style={{flex: 0.25}}>
-            {item?.twitter_url &&  <Image
-                style={{width: '100%', height: '100%', paddingTop: hp(2)}}
-                source={{uri: 'icontwo'}}
-                resizeMode="contain"
-              />}
-             
-            </TouchableOpacity>
-          </View>
-        </View>
+     
       </View>
     );
   };

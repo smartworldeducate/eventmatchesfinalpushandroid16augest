@@ -65,7 +65,7 @@ const SigninScreen = props => {
   useEffect(() => {
     const checkForUpdate = async () => {
       const apiVersion = appVersionData?.user?.response?.version;
-      const appVersion = '1.03';
+      const appVersion = '1.04';
 
       if (apiVersion >= appVersion) {
         Alert.alert(

@@ -112,7 +112,7 @@ const appVersionData=useSelector((state)=>state.appVersionState);
  useEffect(() => {
   const checkForUpdate = async () => {
     const apiVersion = appVersionData?.user?.response?.version;
-    const appVersion = '1.03';
+    const appVersion = '1.04';
 
     if (apiVersion >= appVersion) {
       Alert.alert(
@@ -218,9 +218,10 @@ const appVersionData=useSelector((state)=>state.appVersionState);
                 </TouchableOpacity>
               </View>
               <View style={{ flex: 0.1 }}></View>
-              <TouchableOpacity onPress={()=>registerActivityFunction(item)} style={{ justifyContent: 'center', alignItems: 'center', flex: 0.4, borderRadius: hp(0.9), height: hp(5), marginTop: hp(-1.4), marginLeft: hp(-1), backgroundColor:item?.is_registered =='Y' ? '#555555':'#832D8E',height:hp(4),paddingHorizontal:hp(1) }}>
+              {item?.show_reg_button=='Y'&& ( <TouchableOpacity onPress={()=>registerActivityFunction(item)} style={{ justifyContent: 'center', alignItems: 'center', flex: 0.4, borderRadius: hp(0.9), height: hp(5), marginTop: hp(-1.4), marginLeft: hp(-1), backgroundColor:item?.is_registered =='Y' ? '#555555':'#832D8E',height:hp(4),paddingHorizontal:hp(1) }}>
                 <Text style={{ color: '#fff', fontWeight: '500',fontFamily:fontFamily.robotoMedium,fontSize:hp(1.5)}}>{item?.is_registered == 'Y' ? 'Un-Register':'Register'}</Text>
-              </TouchableOpacity>
+              </TouchableOpacity>)}
+             
             </View>
           </View>
         </View>
