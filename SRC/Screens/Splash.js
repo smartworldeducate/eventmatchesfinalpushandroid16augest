@@ -32,7 +32,7 @@ const Splash = props => {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value !== null) {
-        console.log('Data retrieved successfully:', value);
+        // console.log('Data retrieved successfully:', value);
         const parsedData = JSON.parse(value);
         setData(parsedData);
 

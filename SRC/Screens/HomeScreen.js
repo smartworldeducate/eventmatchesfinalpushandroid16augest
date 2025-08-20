@@ -113,7 +113,7 @@ const appVersionData=useSelector((state)=>state.appVersionState);
  useEffect(() => {
   const checkForUpdate = async () => {
     const apiVersion = appVersionData?.user?.response?.version;
-    const appVersion = '1.06';
+    const appVersion = '1.07';
 
     if (apiVersion >= appVersion) {
       Alert.alert(
@@ -123,7 +123,7 @@ const appVersionData=useSelector((state)=>state.appVersionState);
           {
             text: 'Update Now',
             onPress: () => {
-              VersionCheck.getStoreUrl({ appID: 'com.ccsclientwbec' }).then(url => {
+              VersionCheck.getStoreUrl({ appID: 'com.ccswbec' }).then(url => {
                 Linking.openURL(url);
               });
             },
@@ -162,7 +162,7 @@ const appVersionData=useSelector((state)=>state.appVersionState);
     { id: 3, image: 'https:\/\/app.eventmatches.com\/admin\/uploads\/speakers\/370_1.jpg' },
 
   ];
-
+// const header_image='';
   // const cardData=[
   //   { id: 1, image: 'banertwo',headingText:'A Beginner s Guide',timetext:'10:00 - 11:00',locatoin:'Manchester',btntext:'Register' },
   //   { id: 2, image: 'cardtwo',headingText:'Simple Tips for Success',timetext:'11:00 - 12:00',locatoin:'Glasgow',btntext:'Un-Register' },
@@ -170,14 +170,14 @@ const appVersionData=useSelector((state)=>state.appVersionState);
   //   { id: 3, image: 'banertwo',headingText:'A Beginner s Guide',timetext:'10:00 - 11:00',locatoin:'Manchester',btntext:'Register' },
   // ]
   const renderItem = ({item, index}) => {
-    // console.log("image data===",item?.activity_speakers?.image_name);
+    // console.log("image data===",item?.image_name_header);
     return (
       <TouchableOpacity onPress={()=>props.navigation.navigate('Session',{item})} style={{ flex: 0.19, borderRadius: hp(3), borderWidth:0.5, borderColor: '#cdcdcd', flexDirection: 'row',marginTop:hp(1.5) }}>
         <View style={{ flex: 0.45, height: hp[(5)] }}>
           {/* banertwo */}
           <Image
             style={{ width: '100%', height: '100%', paddingTop: hp(2), borderBottomLeftRadius: hp(2), borderTopLeftRadius: hp(2) }}
-            source={{ uri:item?.image_name}}
+            source={{ uri:item?.activity_thumb ? item?.activity_thumb : item?.image_name }}
             resizeMode="contain"
           />
         </View>
@@ -198,7 +198,7 @@ const appVersionData=useSelector((state)=>state.appVersionState);
                     key={i}>
                     <Image
                       style={styles.imgStyle}
-                      source={{ uri: item?.activity_speakers?.image_name }}
+                      source={{ uri:item?.image_name }}
                       resizeMode="cover"
                     />
                     {/* <View style={{height:hp(3),width:wp(6),borderRadius:hp(50),borderColor:"#fff",borderWidth:1}}></View> */}
@@ -241,31 +241,41 @@ const appVersionData=useSelector((state)=>state.appVersionState);
         translucent
         backgroundColor="transparent"
       />
-       {/* <Modal
-        visible={activityData?.isLoading || registerActivityData?.isLoading}
-        transparent={true}
-        animationType="fade"
-      >
-        <View style={{flex:1,justifyContent: 'center', alignItems: 'center',backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-        <View style={{width:wp(25),height:hp(12.5),backgroundColor: 'white',borderRadius:hp(1),justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" color="#cdcdcd" />
-        </View>
-        </View>
-      </Modal> */}
+       
       <View style={{ flex: 0.25 }}>
         <HeaderTop
           onPressIcon={() => navigation.openDrawer()}
           onflterPress={()=>props.navigation.navigate("Admins")}
         />
       </View>
-
-      <View style={{ flex: 0.3 }}>
+      {activityDate[0]?.image_name_header !=='' && activityDate[0]?.image_name_header !==null ?  <View style={{ flex: 0.3}}>
         <Image
           style={{ width: '100%', height: '95%', borderRadius: hp(1.5) }}
-          source={{ uri:adminData ? adminData?.header_image:'groupfore' }}
+          source={{ uri:activityDate[0]?.image_name_header ? activityDate[0]?.image_name_header:adminData?.header_image }}
           resizeMode="contain"
         />
-      </View>
+      </View> :  <View style={{ flex: 0.3 ,backgroundColor:'#832D8E',borderRadius:hp(1)}}>
+        <View style={{flex: 1, flexDirection: 'row', margin: hp(1.5)}}>
+        
+          <View style={{flex: 1, marginLeft: hp(1.5)}}>
+            <Text
+              style={{
+                color: '#FFFFFF',
+                fontSize: hp(2),
+                flexWrap: 'wrap',
+                fontWeight: 'bold',
+                fontFamily: fontFamily.robotoBold,
+              }}
+              ellipsizeMode="tail"
+              numberOfLines={6}>
+              {adminData?.event_name}
+            </Text>
+            
+          </View>
+       
+        </View>
+      </View>}
+      
 
       <View style={{ flex: 0.11 }}>
        

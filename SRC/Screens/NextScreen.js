@@ -48,7 +48,7 @@ const NextScreen = props => {
       <Swiper style={styles.wrapper} showsButtons={false} ref={swiperRef} activeDot={<View style={{backgroundColor:'#fff',width:8,height:8,borderRadius:4}}></View>}>
         <View style={styles.slide1}>
           <ImageBackground
-            source={{uri: 'firstbaner'}}
+            source={{uri: 'twobaner'}}
             style={{width: '100%', height: '100%'}}
             resizeMode={'contain'}></ImageBackground>
           <View
@@ -103,7 +103,7 @@ Champions women entrepreneurs, driving growth, success, and impactful opportunit
         </View>
         <View style={styles.slide2}>
           <ImageBackground
-            source={{uri: 'banerfore'}}
+            source={{uri: 'threebaner'}}
             style={{width: '100%', height: '100%'}}
             resizeMode={'contain'}></ImageBackground>
           <View
@@ -158,7 +158,7 @@ Champions women entrepreneurs, driving growth, success, and impactful opportunit
         </View>
         <View style={styles.slide3}>
           <ImageBackground
-            source={{uri: 'bannerthree'}}
+            source={{uri: 'forebaner'}}
             style={{width: '100%', height: '100%'}}
             resizeMode={'contain'}></ImageBackground>
           <View

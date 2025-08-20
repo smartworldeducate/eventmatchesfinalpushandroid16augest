@@ -1,4 +1,4 @@
-package com.ccsclientwbec;
+package com.ccswbec;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

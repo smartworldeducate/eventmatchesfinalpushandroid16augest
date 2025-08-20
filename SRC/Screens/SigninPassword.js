@@ -27,6 +27,8 @@ import colors from '../Styles/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {StackActions} from '@react-navigation/native';
+import axios from 'axios';
+import { APIHEADER } from '../constants/const';
 const SigninPassword = props => {
   const dispatch = useDispatch();
   const passwordData=useSelector((state)=>state.passwordState);
@@ -85,6 +87,23 @@ const SigninPassword = props => {
       );
     }
   };
+
+//   const handleReset=async()=>{
+//        const response=await axios.post("https://dev-app.eventmatches.com/administrator/Api/resetPassword",{
+//       headers: {
+//           api_key: APIHEADER.api_key,
+//           api_secret:APIHEADER.api_secret,
+//           "Content-Type": "multipart/form-data"
+//       },
+//     })
+//     const message = response?.data.response.message;
+
+// const password = message.replace("Password is updated ", "");
+// setPassword(password);
+// // console.log("password==",password); // gawhv@69
+//   }
+
+
       // console.log("appInstallVersion==",deviceInfo.appInstallVersion);
 
   useEffect(() => {
@@ -239,6 +258,11 @@ const SigninPassword = props => {
             </TouchableOpacity>
           </View>
         </View>
+        {/* <TouchableOpacity onPress={handleReset} style={{justifyContent:'center',alignItems:'center'}}>
+            <Text style={{color:'#395ce8ff', fontSize: hp(2.5),
+                  fontWeight: '300',
+                  fontFamily: fontFamily.robotoMedium,textDecorationLine:'underline'}}>Password reset</Text>
+          </TouchableOpacity> */}
         <View style={{flex: 0.3, marginLeft: hp(-25.5), marginTop: hp(4)}}>
           <Image
             source={{uri: 'vectorbottom'}}

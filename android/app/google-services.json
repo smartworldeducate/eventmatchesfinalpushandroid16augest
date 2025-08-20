@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:820650781605:android:ec8994836f66f9720f964c",
         "android_client_info": {
-          "package_name": "com.ccsclientwbec"
+          "package_name": "com.ccswbec"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "820650781605-cm6q4gqldl7bdn4hdbhmk40k6pra3lm0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ccsclientwbec",
+            "package_name": "com.ccswbec",
             "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },

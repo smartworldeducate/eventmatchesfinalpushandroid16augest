@@ -200,11 +200,11 @@ const SessionProgramm = (props) => {
           // borderWidth:1,
           // borderColor:'#cdcdcd'
         }}>
-          <Image
-               style={{ width: '90%', height: '90%', paddingTop: hp(0),borderRadius:hp(50) }}
+          {/* <Image
+               style={{ width: '90%', height: '90%', paddingTop: hp(0) }}
                source={{ uri: item?.resources?.image_name }}
                resizeMode="cover"
-             />
+             /> */}
       </TouchableOpacity>
     </View>)
     }
@@ -325,11 +325,11 @@ const SessionProgramm = (props) => {
               <View style={{flex: 0.75}}>
               <Text
                   style={{color:colors.descBlack, fontSize: hp(1.8), fontWeight: 'bold',fontFamily:fontFamily.robotoBold}}>
-                  Hall # 40
+                  {/* Hall # 40 */}
                 </Text>
                 <Text
                   style={{color:colors.descBlack, fontSize: hp(1.6), fontWeight: '400',fontFamily:fontFamily.robotoBold}}>
-                 {item?.location}
+                 {item?.state_name}
                 </Text>
               </View>
             </View>
@@ -423,7 +423,18 @@ const SessionProgramm = (props) => {
                 fontWeight: '600',
                 fontFamily:fontFamily.robotoBold
               }}>
-                {detailData?.user?.response?.detail ? ' About Session':'No Data Available.'}
+                {detailData?.user?.response?.detail ? ' About Session': <Text
+                  style={{
+                    color:colors.grayDescColor,
+                    fontSize: hp(2.5),
+                    fontWeight: '600',
+                    fontFamily:fontFamily.robotoBold,
+                    fontStyle:'italic',
+                    textAlign:'center'
+                  }}>
+                    No data available
+                  
+                </Text>}
              
             </Text>
             </View>
@@ -446,7 +457,7 @@ const SessionProgramm = (props) => {
                     fontWeight: '600',
                     fontFamily:fontFamily.robotoBold
                   }}>
-                  {urlData?.speakers?.length > 0 ? 'Moderator:':<Text style={{color:colors.grayDescColor,fontSize:hp(2)}}>No data available</Text>}  
+                  {urlData?.speakers?.length > 0 ? 'Moderator:':<Text style={{color:colors.grayDescColor,fontSize:hp(2),textAlign:'center'}}>No data available</Text>}  
                   
                 </Text>
               </View>
@@ -461,22 +472,8 @@ const SessionProgramm = (props) => {
           )}
           {resurces && (
             <View style={{flex: 0.7, height: hp(34)}}>
-              {urlData?.resources?.image_name !=='' && (
-                <View style={{flex:0.2,justifyContent:'center',alignItems:'center'}}>
-                <Text
-                  style={{
-                    color:colors.grayDescColor,
-                    fontSize: hp(2.5),
-                    fontWeight: '600',
-                    fontFamily:fontFamily.robotoBold,
-                    fontStyle:'italic'
-                  }}>
-                    No data available
-                  
-                </Text>
-              </View>
-              )}
-              {urlData?.resources?.image_name =='' && (
+             
+              {item?.presentation =='' && (
                 <View style={{flex:0.2,justifyContent:'center',alignItems:'center'}}>
                 <Text
                   style={{
@@ -489,7 +486,20 @@ const SessionProgramm = (props) => {
                 </Text>
               </View>
               )}
+               {item?.presentation !=='' && (
+                
+                <TouchableOpacity onPress={() => Linking.openURL(item?.presentation)} style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                  <Text style={{
+                    fontSize: hp(2.5),
+                    fontWeight: '600',
+                    fontFamily: fontFamily.robotoBold,
+                  }}>
+                    <Text style={{ color: '#832D8E',fontWeight: '400', fontFamily: fontFamily.robotoMedium ,textDecorationLine: 'underline' }}>Click here</Text>
+                    <Text style={{ color: 'black',fontWeight: '400', fontFamily: fontFamily.robotoMedium }}> to view the file</Text>
+                  </Text>
+                </TouchableOpacity>
               
+              )}
              <FlatList
               data={detailData?.user?.response?.detail}
               renderItem={renderItem}

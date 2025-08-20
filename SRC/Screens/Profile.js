@@ -60,7 +60,7 @@ const Profile = props => {
         const parsedData = JSON.parse(value);
         setAdminData(parsedData);
         // dispatch(speakerDetailHandler({"user_id":parsedData?.login_id}));
-          dispatch(speakerDetailHandler({"user_id":parsedData?.login_id}));
+          dispatch(speakerDetailHandler({"user_id":parsedData?.event_user_id}));
         
       } 
     } catch (error) {

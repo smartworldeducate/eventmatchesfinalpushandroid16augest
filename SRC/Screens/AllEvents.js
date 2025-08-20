@@ -78,7 +78,7 @@ const AllEvents = props => {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value !== null) {
-        console.log('login user Data retrieved successfully:', value);
+        // console.log('login user Data retrieved successfully:', value);
         const parsedData = JSON.parse(value);
         // console.log("login user id===",parsedData);
         setLoginData(parsedData);
@@ -116,7 +116,7 @@ const AllEvents = props => {
     })
     if(response.data?.response?.activities?.event_user_id){
       const event_user_id=response.data?.response?.activities?.event_user_id;
-        await saveData({user_id: user_id, event_id: item?.event_id,login_id:loginData?.user_id,is_macher:item?.is_matchmaker,event_user_id:event_user_id,header_image:item?.header_image});
+        await saveData({user_id: user_id, event_id: item?.event_id,login_id:loginData?.user_id,is_macher:item?.is_matchmaker,event_user_id:event_user_id,header_image:item?.header_image,event_name:item?.event_name});
         await saveActivityData({activity:item?.activities});
 
     }

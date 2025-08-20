@@ -65,7 +65,7 @@ const SigninScreen = props => {
   useEffect(() => {
     const checkForUpdate = async () => {
       const apiVersion = appVersionData?.user?.response?.version;
-      const appVersion = '1.06';
+      const appVersion = '1.07';
 
       if (apiVersion >= appVersion) {
         Alert.alert(
@@ -75,7 +75,7 @@ const SigninScreen = props => {
             {
               text: 'Update Now',
               onPress: () => {
-                VersionCheck.getStoreUrl({ appID: 'com.ccsclientwbec' }).then(url => {
+                VersionCheck.getStoreUrl({ appID: 'com.ccswbec' }).then(url => {
                   Linking.openURL(url);
                 });
               },
